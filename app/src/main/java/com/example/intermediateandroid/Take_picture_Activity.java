@@ -7,6 +7,7 @@ import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.activity.result.ActivityResultLauncher;
@@ -69,6 +70,9 @@ public class Take_picture_Activity extends AppCompatActivity {
             else if(requestCode == choose_image_request_code)
             {
                 imageView.setImageURI(data.getData());
+                // upload image in server
+                String input_image_url = data.getData().toString();
+                Toast.makeText(Take_picture_Activity.this,input_image_url, Toast.LENGTH_SHORT).show();
             }
         }
     }
